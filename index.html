@@ -1,43 +1,58 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>CSS Box Styling</title>
+    <title>Timed Quiz</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Applying Bootstrap -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="./assets/css/style.css" />
   </head>
   <body>
-    <header>
-      <div class= "large-font">Word Guess Game</div>
-      <button class="start-button">Start</button>
-    </header>
+    <div class="container mt-3">
+      <h5 class="card-text float-right">Time:  <span id="time">30</h5>
+      <button type="button" class="btn btn-link float-left">View high scores</button>
+        <div class="row d-flex justify-content-center">
+          <div class="col-12 p-4 justify-content-center">
+            <h1 class="card-text text-center">
+            Timed Quiz
+            </h1>
+            <div class="page0">
+              <h2 class="text-center">Quiz Info</h2>
+              <p>You have 30 seconds to complete the following 3 questions, 
+                you will get 10 points for each correct answer, 
+                when all questions are answered or the timer reaches 0, 
+                the game is over.</p>
+                <button class="btn btn-success d-flex mx-auto" id="start_btn"<h3>Start</h3>
+            </div>
+            <div>
+              <div class="card-body">
+                <h5 class="card-text" id="question"></h5>
+              </div>
+              <div id="options">
+                <button class="btn btn-block btn-outline-info text-left option" id="optionA"> </button>
+                <button class="btn btn-block btn-outline-info text-left option" id="optionB"> </button>
+                <button class="btn btn-block btn-outline-info text-left option" id="optionC"> </button>
+                <button class="btn btn-block btn-outline-info text-left option" id="optionD"> </button>
+              </div>
+              <div class="footer p-5">
+                <button class="btn btn-success float-left" id="last">Last</button>
+                <button class="btn btn-success float-right" id="next">Next</button>
+              </div>
+              <div id="result">
+                <h3 class="mt-5 display-4">Marks: <span id="marks"></span> /30</h3>
+                <h3 class="mt-4"><span id="correct">0</span> Correct Out of 3</h3>
+              </div>
+            </div>
+  
 
-    <main>
-      <section>
-        <div class="card word-guess">
-          <div class="large-font word-blanks">J _ v _ S c r_ _t</div>
-        </div>
-      </section>
+          </div>
 
-      <section>
-        <div class="card results">
-          <div class = "win-loss-container">
-          <div>
-          <h2>Wins: <span class="win">0 </span> </h2>
-          <h2>Losses: <span class="lose">0</span></h2>
+
         </div>
-          <button class="reset-button">Reset Score</button>
-      </div>
-          <div class= "card timer">
-            <div class = "timer-text">
-            <div class="large-font timer-count">10</div>
-            <h3>seconds remaining</h3>
-          </div>
-        
-          </div>
-        </div>
-      </section>
-    </main>
+    </div>
+
+
     <script src="assets/js/script.js"></script>
   </body>
 </html>
