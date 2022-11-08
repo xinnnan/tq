@@ -1,7 +1,6 @@
 var count=0;
 var time=30;
 var marks=document.getElementById("marks");
-var answer=[];
 var timer;
 var nameinit=document.getElementById("formGroupExampleInput");
 var saveButton=document.getElementById("submitbtn");
@@ -40,20 +39,39 @@ const qoa=[
       "D. A hardware componenet."
     ]
   },
-]
-
-$(document).ready(function() {
-// finish button, main page, result and result form needs to be hidden first
-  $('#finish').hide();
-  $('#main').hide();
-  $('#result').hide();
-  $('#result-form').hide();
-  buttons();
-
-  $("start_btn").click(function () {
-  $('#main').show();}
-
-  // button display depends on the number of questions left
+];
+// intial few pages are hidden
+$('#finish').hide();
+$('#main').hide();
+$('#result').hide();
+$('#result-form').hide();
+buttons();
+//when start is pressed 
+$('#start_btn').click(function () {
+  timer = setInterval(timer_function, 1000);
+  function timer_function() {
+  $('#time').text(time);
+  if (time < 1) {
+  clearInterval(timer);
+  alert("Out of time");
+  creating_result(data);
+  $("#main").hide();
+  $("#result").show();
+  time--}}}
+  
+// button display depends on the number of questions left
+function buttons(){
+  if(count >0){
+    $('#last').show();
+    if(count==3){
+      $('#next').hide();
+      $('#finish').show();
+    }
+    else{
+      $('#next').show();
+    }
+  };
+// define button show or no show
   function buttons(){
     if(count >0){
       $('#last').show();
@@ -65,7 +83,7 @@ $(document).ready(function() {
         $('#next').show();
       }
     }
-  }
+  
   // adding questions
   function adding_q(qoa,i){
     $(`#question`).text(qoa[i].question)
@@ -75,27 +93,8 @@ $(document).ready(function() {
     $(`#optionD`).text(qoa[i].options[3])
     $('#number').text(Number(i + 1));
   }
-})
 
   // verify answer 
-  // function verify(){
-  //   for (var i=0; i<4;i++){
-  //     var 
-  //   }
-  // }
 
 
 
-
-
-
-
-// saveButton.addEventListener("click", function(event) {
-// event.preventDefault();
-// var studentGrade = {
-//   Initial: nameinit.value,
-//   Score: marks.value,
-// };
-// localStorage.setItem("studentGrade", JSON.stringify(studentGrade));
-// renderMessage();
-// });
