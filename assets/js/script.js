@@ -1,9 +1,10 @@
 var count=0;
 var time=30;
-var marks=0;
+var marks=document.getElementById("marks");
 var answer=[];
 var timer;
-
+var nameinit=document.getElementById("formGroupExampleInput");
+var saveButton=document.getElementById("submitbtn");
 // questions options and answers array
 const qoa=[
   {
@@ -42,12 +43,15 @@ const qoa=[
 ]
 
 $(document).ready(function() {
-// finish button, result and result form needs to be hidden
+// finish button, main page, result and result form needs to be hidden first
   $('#finish').hide();
   $('#main').hide();
   $('#result').hide();
   $('#result-form').hide();
   buttons();
+
+  $("start_btn").click(function () {
+  $('#main').show();}
 
   // button display depends on the number of questions left
   function buttons(){
@@ -64,7 +68,6 @@ $(document).ready(function() {
   }
   // adding questions
   function adding_q(qoa,i){
-
     $(`#question`).text(qoa[i].question)
     $(`#optionA`).text(qoa[i].options[0])
     $(`#optionB`).text(qoa[i].options[1])
@@ -72,6 +75,8 @@ $(document).ready(function() {
     $(`#optionD`).text(qoa[i].options[3])
     $('#number').text(Number(i + 1));
   }
+})
+
   // verify answer 
   // function verify(){
   //   for (var i=0; i<4;i++){
@@ -83,4 +88,14 @@ $(document).ready(function() {
 
 
 
-})
+
+
+// saveButton.addEventListener("click", function(event) {
+// event.preventDefault();
+// var studentGrade = {
+//   Initial: nameinit.value,
+//   Score: marks.value,
+// };
+// localStorage.setItem("studentGrade", JSON.stringify(studentGrade));
+// renderMessage();
+// });
