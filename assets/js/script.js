@@ -40,7 +40,7 @@ const qoa=[
     ]
   },
 ];
-// intial few pages are hidden
+// few pages are hidden in the begining 
 $('#finish').hide();
 $('#main').hide();
 $('#result').hide();
