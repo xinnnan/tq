@@ -4,7 +4,7 @@ var marks=document.getElementById("marks");
 var timer;
 var nameinit=document.getElementById("formGroupExampleInput");
 var saveButton=document.getElementById("submitbtn");
-// questions options and answers array
+// questions options and answers array, will try use json 
 const qoa=[
   {
     number:1,
